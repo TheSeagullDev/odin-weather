@@ -6,10 +6,9 @@ const tempElement = document.querySelector(".temp");
 const locationElement = document.querySelector(".location");
 const descriptionElement = document.querySelector(".description");
 const icon = document.querySelector(".icon img");
-const degreeBtn = document.querySelector("button");
+const degreeBtn = document.querySelector("#units");
 let metric = false;
 let location = "";
-
 
 async function getWeatherData(location, metric) {
   let result;
@@ -30,12 +29,14 @@ async function getWeatherData(location, metric) {
 
 function updateDisplay(data) {
   const forecast = data.currentConditions;
-  tempElement.textContent = forecast.temp;
+  tempElement.textContent = metric
+    ? `${forecast.temp} °C`
+    : `${forecast.temp} °F`;
   locationElement.textContent = data.resolvedAddress;
   descriptionElement.textContent = data.description;
   const iconName = forecast.icon;
   const iconImg = import(`./assets/${iconName}.png`);
-  iconImg.then((result) => icon.src = result.default);
+  iconImg.then((result) => (icon.src = result.default));
   console.log(data);
 }
 
@@ -49,14 +50,13 @@ form.addEventListener("submit", (event) => {
 
 degreeBtn.addEventListener("click", () => {
   metric = !metric;
-  if(metric) {
-    degreeBtn.textContent = "Switch to °F";
+  if (metric) {
+    degreeBtn.value = "Switch to °F";
+  } else {
+    degreeBtn.value = "Switch to °C";
   }
-  else {
-    degreeBtn.textContent = "Switch to °C";
-  }
-  if(location) {
+  if (location) {
     const data = getWeatherData(location, metric);
     data.then((result) => updateDisplay(result));
   }
-})
+});

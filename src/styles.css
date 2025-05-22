@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #050f14;
+    color: #e5f0f5;
+    font-family: Helvetica;
+}
+
+.content {
+    border: 2px solid #115d7e;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #2d9dcd;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+input {
+    background-color: #115d7e;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: #e5f0f5;
+}
+
+form {
+    margin: 5px;
+}
+
+.weather {
+    padding: 5px;
+}
+
+#units {
+    width: 100px;
+}

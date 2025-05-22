@@ -6,17 +6,19 @@
     <title>Weather App</title>
   </head>
   <body>
-    <form action="">
-      <label for="loc">Location:</label>
-      <input type="text" id="loc" name="loc" required>
-      <input type="submit" value="Enter">
-    </form>
-    <button>Switch to °C</button>
-    <div class="weather">
-      <div class="location"></div>
-      <div class="temp"></div>
-      <div class="description"></div>
-      <div class="icon"><img src="#" alt=""></div>
+    <div class="content">
+      <form action="">
+        <label for="loc">Location:</label>
+        <input type="text" id="loc" name="loc" required>
+        <input type="submit" value="Enter">
+        <input type="button" id="units" value="Switch to °C">
+      </form>
+      <div class="weather">
+        <div class="location"></div>
+        <div class="temp"></div>
+        <div class="description"></div>
+        <div class="icon"><img src="#" alt=""></div>
+      </div>
     </div>
   </body>
 </html>
