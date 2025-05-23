@@ -37,6 +37,7 @@ function updateDisplay(data) {
   const iconName = forecast.icon;
   const iconImg = import(`./assets/${iconName}.png`);
   iconImg.then((result) => (icon.src = result.default));
+  icon.alt = iconName;
   console.log(data);
 }
 
